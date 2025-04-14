@@ -10,3 +10,10 @@ const pool = new Pool({
 });
 
 export default pool;
+import db from "./db.js";
+
+db.query("SELECT NOW()").then(res => {
+  console.log("✅ DB Connected at:", res.rows[0].now);
+}).catch(err => {
+  console.error("❌ DB Connection Error:", err);
+});
